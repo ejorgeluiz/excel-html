@@ -37,6 +37,62 @@
             padding: 20px;
         }
 
+        .tabs {
+            display: flex;
+            margin-bottom: 0;
+            border-bottom: 2px solid #34495e;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px 20px;
+            background: #ecf0f1;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            color: #34495e;
+            transition: all 0.3s;
+        }
+
+        .tab-btn:first-child {
+            border-radius: 4px 0 0 0;
+        }
+
+        .tab-btn:last-child {
+            border-radius: 0 4px 0 0;
+        }
+
+        .tab-btn.active {
+            background: #34495e;
+            color: white;
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: #bdc3c7;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .instructions {
+            background: #e8f5e8;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .instructions p {
+            margin: 5px 0;
+            color: #2c5530;
+        }
+
         .column-headers {
             display: flex;
             background: #34495e;
@@ -115,14 +171,37 @@
             box-shadow: inset 2px 0 0 #2196f3;
         }
 
-        .formula-cell input {
-            background-color: #fff3e0;
-            font-family: 'Courier New', monospace;
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
         }
 
-        .formula-cell input:focus {
-            background-color: #ffe0b2;
-            box-shadow: inset 2px 0 0 #ff9800;
+        .add-row-btn, .add-col-btn {
+            flex: 1;
+            padding: 12px;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .add-row-btn {
+            background: #3498db;
+        }
+
+        .add-row-btn:hover {
+            background: #2980b9;
+        }
+
+        .add-col-btn {
+            background: #e74c3c;
+        }
+
+        .add-col-btn:hover {
+            background: #c0392b;
         }
 
         .results {
@@ -133,24 +212,11 @@
         }
 
         .result-card {
-            background: linear-gradient(135deg, #f39c12, #e67e22);
             color: white;
             padding: 15px;
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .result-card.coluna-a {
-            background: linear-gradient(135deg, #27ae60, #2ecc71);
-        }
-
-        .result-card.coluna-b {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-        }
-
-        .result-card.coluna-c {
-            background: linear-gradient(135deg, #8e44ad, #9b59b6);
         }
 
         .result-label {
@@ -165,48 +231,107 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
-        .add-row-btn {
-            width: 100%;
-            padding: 12px;
-            background: #3498db;
+        .calculator {
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .calculator-title {
+            text-align: center;
             color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background 0.3s;
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
-        .add-row-btn:hover {
-            background: #2980b9;
+        .calc-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 300px;
+            margin: 0 auto;
         }
 
-        .instructions {
-            background: #e8f5e8;
-            border-left: 4px solid #27ae60;
+        .calc-input {
             padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 0 4px 4px 0;
+            font-size: 20px;
+            text-align: center;
+            border: none;
+            border-radius: 10px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+            background: white;
+            outline: none;
+            transition: all 0.3s;
         }
 
-        .instructions p {
-            margin: 5px 0;
-            color: #2c5530;
+        .calc-input:focus {
+            box-shadow: 0 0 15px rgba(255,255,255,0.5);
+            transform: translateY(-2px);
         }
 
-        .formula-help {
-            background: #fff3e0;
-            border-left: 4px solid #ff9800;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 0 4px 4px 0;
-            font-size: 12px;
+        .operator-select {
+            padding: 15px;
+            font-size: 18px;
+            text-align: center;
+            border: none;
+            border-radius: 10px;
+            background: #f8f9fa;
+            cursor: pointer;
+            outline: none;
+            font-weight: bold;
+            color: #495057;
         }
 
-        .formula-help p {
-            margin: 2px 0;
-            color: #e65100;
+        .calc-result {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .calc-result-label {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .calc-result-value {
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .calc-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .calc-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .calc-btn.clear {
+            background: #dc3545;
+            color: white;
+        }
+
+        .calc-btn.clear:hover {
+            background: #c82333;
+            transform: translateY(-1px);
         }
     </style>
 </head>
@@ -219,58 +344,71 @@
         <div class="spreadsheet">
             <div class="instructions">
                 <p><strong>Como usar:</strong></p>
-                <p>• <strong>Coluna A e B:</strong> Digite valores numéricos - soma e contagem automáticas</p>
-                <p>• <strong>Coluna C (Fórmulas):</strong> Digite operações matemáticas como: 2+3, 10*5, 100/4, etc.</p>
+                <p>• <strong>Aba Planilha:</strong> Digite valores nas colunas - soma e contagem automáticas</p>
+                <p>• <strong>Aba Calculadora:</strong> Mini calculadora para operações aritméticas simples</p>
             </div>
             
-            <div class="column-headers">
-                <div class="row-header">#</div>
-                <div class="column-header">Coluna A</div>
-                <div class="column-header">Coluna B</div>
-                <div class="column-header">Coluna C (Fórmulas)</div>
+            <div class="tabs">
+                <button class="tab-btn active" onclick="showTab('planilha', this)">📊 Planilha</button>
+                <button class="tab-btn" onclick="showTab('calculadora', this)">🧮 Calculadora</button>
             </div>
-            
-            <div class="input-area" id="inputArea">
-                <!-- Linhas serão geradas aqui -->
+
+            <div id="planilha" class="tab-content active">
+                <div class="column-headers" id="columnHeaders">
+                    <div class="row-header">#</div>
+                    <div class="column-header">Coluna A</div>
+                    <div class="column-header">Coluna B</div>
+                </div>
+                
+                <div class="input-area" id="inputArea">
+                    <!-- Linhas serão geradas aqui -->
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="add-row-btn" onclick="addRow()">➕ Adicionar Nova Linha</button>
+                    <button class="add-col-btn" onclick="addColumn()">📋 Adicionar Nova Coluna</button>
+                </div>
+                
+                <div class="results" id="resultsArea">
+                    <!-- Resultados serão gerados aqui -->
+                </div>
             </div>
-            
-            <button class="add-row-btn" onclick="addRow()">➕ Adicionar Nova Linha</button>
-            
-            <div class="formula-help">
-                <p><strong>Exemplos de fórmulas para Coluna C:</strong></p>
-                <p>• Adição: 5+3 • Subtração: 10-4 • Multiplicação: 6*7 • Divisão: 20/4</p>
-                <p>• Potência: 2^3 • Parênteses: (10+5)*2 • Decimais: 3.14*2</p>
-            </div>
-            
-            <div class="results">
-                <div class="result-card coluna-a">
-                    <div class="result-label">COLUNA A - SOMA</div>
-                    <div class="result-value" id="sumA">0</div>
-                </div>
-                
-                <div class="result-card coluna-a">
-                    <div class="result-label">COLUNA A - QTD</div>
-                    <div class="result-value" id="countA">0</div>
-                </div>
-                
-                <div class="result-card coluna-b">
-                    <div class="result-label">COLUNA B - SOMA</div>
-                    <div class="result-value" id="sumB">0</div>
-                </div>
-                
-                <div class="result-card coluna-b">
-                    <div class="result-label">COLUNA B - QTD</div>
-                    <div class="result-value" id="countB">0</div>
-                </div>
-                
-                <div class="result-card coluna-c">
-                    <div class="result-label">COLUNA C - SOMA</div>
-                    <div class="result-value" id="sumC">0</div>
-                </div>
-                
-                <div class="result-card coluna-c">
-                    <div class="result-label">COLUNA C - QTD</div>
-                    <div class="result-value" id="countC">0</div>
+
+            <div id="calculadora" class="tab-content">
+                <div class="calculator">
+                    <h2 class="calculator-title">🧮 Mini Calculadora</h2>
+                    
+                    <div class="calc-input-group">
+                        <input type="number" 
+                               id="valor1" 
+                               class="calc-input" 
+                               placeholder="Primeiro valor"
+                               oninput="calcularResultado()">
+                        
+                        <select id="operacao" class="operator-select" onchange="calcularResultado()">
+                            <option value="">Selecione a operação</option>
+                            <option value="+">➕ Adição (+)</option>
+                            <option value="-">➖ Subtração (-)</option>
+                            <option value="*">✖️ Multiplicação (×)</option>
+                            <option value="/">➗ Divisão (÷)</option>
+                            <option value="^">🔢 Potência (^)</option>
+                        </select>
+                        
+                        <input type="number" 
+                               id="valor2" 
+                               class="calc-input" 
+                               placeholder="Segundo valor"
+                               oninput="calcularResultado()">
+                    </div>
+                    
+                    <div class="calc-result" id="resultadoCalc">
+                        <div class="calc-result-label">RESULTADO</div>
+                        <div class="calc-result-value" id="valorResultado">0</div>
+                    </div>
+                    
+                    <div class="calc-buttons">
+                        <button class="calc-btn clear" onclick="limparCalculadora()">🗑️ Limpar Tudo</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -278,32 +416,194 @@
 
     <script>
         let rowCount = 0;
+        let columnCount = 2; // Inicialmente temos 2 colunas (A e B)
+        const columnColors = [
+            'linear-gradient(135deg, #27ae60, #2ecc71)', // Verde
+            'linear-gradient(135deg, #3498db, #2980b9)',  // Azul
+            'linear-gradient(135deg, #8e44ad, #9b59b6)',  // Roxo
+            'linear-gradient(135deg, #e74c3c, #c0392b)',  // Vermelho
+            'linear-gradient(135deg, #f39c12, #e67e22)',  // Laranja
+            'linear-gradient(135deg, #1abc9c, #16a085)',  // Verde água
+            'linear-gradient(135deg, #34495e, #2c3e50)',  // Cinza escuro
+            'linear-gradient(135deg, #e67e22, #d35400)'   // Laranja escuro
+        ];
+        
+        // Função para mostrar/esconder abas
+        function showTab(tabName, element) {
+            // Esconde todas as abas
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active de todos os botões
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Mostra a aba selecionada
+            const selectedTab = document.getElementById(tabName);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+            
+            // Ativa o botão correspondente
+            if (element) {
+                element.classList.add('active');
+            }
+        }
+        
+        // Função para calcular resultado da calculadora
+        function calcularResultado() {
+            const valor1Input = document.getElementById('valor1');
+            const valor2Input = document.getElementById('valor2');
+            const operacaoSelect = document.getElementById('operacao');
+            const resultadoElement = document.getElementById('valorResultado');
+            
+            if (!valor1Input || !valor2Input || !operacaoSelect || !resultadoElement) {
+                return;
+            }
+            
+            const valor1 = parseFloat(valor1Input.value);
+            const valor2 = parseFloat(valor2Input.value);
+            const operacao = operacaoSelect.value;
+            
+            if (isNaN(valor1) || isNaN(valor2) || !operacao) {
+                resultadoElement.textContent = '0';
+                return;
+            }
+            
+            let resultado = 0;
+            
+            switch (operacao) {
+                case '+':
+                    resultado = valor1 + valor2;
+                    break;
+                case '-':
+                    resultado = valor1 - valor2;
+                    break;
+                case '*':
+                    resultado = valor1 * valor2;
+                    break;
+                case '/':
+                    if (valor2 === 0) {
+                        resultadoElement.textContent = 'Erro: Divisão por zero';
+                        return;
+                    }
+                    resultado = valor1 / valor2;
+                    break;
+                case '^':
+                    resultado = Math.pow(valor1, valor2);
+                    break;
+                default:
+                    resultado = 0;
+            }
+            
+            resultadoElement.textContent = resultado.toLocaleString('pt-BR', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 4
+            });
+        }
+        
+        // Função para limpar a calculadora
+        function limparCalculadora() {
+            const valor1 = document.getElementById('valor1');
+            const valor2 = document.getElementById('valor2');
+            const operacao = document.getElementById('operacao');
+            const resultado = document.getElementById('valorResultado');
+            
+            if (valor1) valor1.value = '';
+            if (valor2) valor2.value = '';
+            if (operacao) operacao.value = '';
+            if (resultado) resultado.textContent = '0';
+        }
+        
+        // Função para adicionar nova coluna
+        function addColumn() {
+            columnCount++;
+            const columnLetter = String.fromCharCode(64 + columnCount); // A=65, B=66, etc.
+            
+            // Adiciona header da nova coluna
+            const columnHeaders = document.getElementById('columnHeaders');
+            if (columnHeaders) {
+                const newHeader = document.createElement('div');
+                newHeader.className = 'column-header';
+                newHeader.textContent = `Coluna ${columnLetter}`;
+                columnHeaders.appendChild(newHeader);
+            }
+            
+            // Adiciona célula em todas as linhas existentes
+            const rows = document.querySelectorAll('#inputArea .row');
+            rows.forEach((row, rowIndex) => {
+                const newCell = document.createElement('div');
+                newCell.className = 'cell';
+                newCell.innerHTML = `
+                    <input type="text" 
+                           placeholder="Digite um valor..." 
+                           oninput="calculateResults()" 
+                           onkeypress="handleEnter(event, ${rowIndex + 1}, ${columnCount - 1})">
+                `;
+                row.appendChild(newCell);
+            });
+            
+            // Recalcula e atualiza os resultados
+            updateResultsDisplay();
+            calculateResults();
+        }
+        
+        // Função para atualizar a exibição dos resultados
+        function updateResultsDisplay() {
+            const resultsArea = document.getElementById('resultsArea');
+            if (!resultsArea) return;
+            
+            resultsArea.innerHTML = '';
+            
+            for (let i = 1; i <= columnCount; i++) {
+                const columnLetter = String.fromCharCode(64 + i);
+                const colorIndex = (i - 1) % columnColors.length;
+                
+                // Card de soma
+                const sumCard = document.createElement('div');
+                sumCard.className = 'result-card';
+                sumCard.style.background = columnColors[colorIndex];
+                sumCard.innerHTML = `
+                    <div class="result-label">COLUNA ${columnLetter} - SOMA</div>
+                    <div class="result-value" id="sum${columnLetter}">0</div>
+                `;
+                resultsArea.appendChild(sumCard);
+                
+                // Card de quantidade
+                const countCard = document.createElement('div');
+                countCard.className = 'result-card';
+                countCard.style.background = columnColors[colorIndex];
+                countCard.innerHTML = `
+                    <div class="result-label">COLUNA ${columnLetter} - QTD</div>
+                    <div class="result-value" id="count${columnLetter}">0</div>
+                `;
+                resultsArea.appendChild(countCard);
+            }
+        }
         
         // Função para criar uma nova linha
         function createRow(rowNum) {
             const row = document.createElement('div');
             row.className = 'row';
-            row.innerHTML = `
-                <div class="row-number">${rowNum}</div>
-                <div class="cell">
-                    <input type="text" 
-                           placeholder="Digite um valor..." 
-                           oninput="calculateResults()" 
-                           onkeypress="handleEnter(event, ${rowNum}, 0)">
-                </div>
-                <div class="cell">
-                    <input type="text" 
-                           placeholder="Digite um valor..." 
-                           oninput="calculateResults()" 
-                           onkeypress="handleEnter(event, ${rowNum}, 1)">
-                </div>
-                <div class="cell formula-cell">
-                    <input type="text" 
-                           placeholder="Ex: 2+3, 10*5, 100/4..." 
-                           oninput="calculateResults()" 
-                           onkeypress="handleEnter(event, ${rowNum}, 2)">
-                </div>
-            `;
+            
+            let cellsHTML = `<div class="row-number">${rowNum}</div>`;
+            
+            for (let i = 0; i < columnCount; i++) {
+                cellsHTML += `
+                    <div class="cell">
+                        <input type="text" 
+                               placeholder="Digite um valor..." 
+                               oninput="calculateResults()" 
+                               onkeypress="handleEnter(event, ${rowNum}, ${i})">
+                    </div>
+                `;
+            }
+            
+            row.innerHTML = cellsHTML;
             return row;
         }
         
@@ -311,98 +611,58 @@
         function addRow() {
             rowCount++;
             const inputArea = document.getElementById('inputArea');
-            const newRow = createRow(rowCount);
-            inputArea.appendChild(newRow);
-            
-            // Foca no primeiro input da nova linha
-            const firstInput = newRow.querySelector('input');
-            firstInput.focus();
+            if (inputArea) {
+                const newRow = createRow(rowCount);
+                inputArea.appendChild(newRow);
+                
+                // Foca no primeiro input da nova linha
+                const firstInput = newRow.querySelector('input');
+                if (firstInput) {
+                    firstInput.focus();
+                }
+            }
             
             calculateResults();
-        }
-        
-        // Função para avaliar expressões matemáticas de forma segura
-        function evaluateExpression(expr) {
-            try {
-                // Remove espaços e substitui ^ por **
-                expr = expr.replace(/\s/g, '').replace(/\^/g, '**');
-                
-                // Verifica se a expressão contém apenas números, operadores e parênteses
-                if (!/^[0-9+\-*/.()^**\s]+$/.test(expr)) {
-                    return NaN;
-                }
-                
-                // Avalia a expressão
-                return Function('"use strict"; return (' + expr + ')')();
-            } catch (e) {
-                return NaN;
-            }
         }
         
         // Função para calcular soma e contagem de todas as colunas
         function calculateResults() {
             const rows = document.querySelectorAll('#inputArea .row');
             
-            let sumA = 0, countA = 0;
-            let sumB = 0, countB = 0;
-            let sumC = 0, countC = 0;
+            // Inicializa arrays para somas e contagens
+            const sums = new Array(columnCount).fill(0);
+            const counts = new Array(columnCount).fill(0);
             
             rows.forEach(row => {
                 const inputs = row.querySelectorAll('input');
                 
-                // Coluna A
-                const valueA = parseFloat(inputs[0].value);
-                if (!isNaN(valueA) && inputs[0].value.trim() !== '') {
-                    sumA += valueA;
-                    countA++;
-                }
-                
-                // Coluna B
-                const valueB = parseFloat(inputs[1].value);
-                if (!isNaN(valueB) && inputs[1].value.trim() !== '') {
-                    sumB += valueB;
-                    countB++;
-                }
-                
-                // Coluna C (fórmulas)
-                const exprC = inputs[2].value.trim();
-                if (exprC !== '') {
-                    const resultC = evaluateExpression(exprC);
-                    if (!isNaN(resultC) && isFinite(resultC)) {
-                        sumC += resultC;
-                        countC++;
-                        
-                        // Mostra o resultado da fórmula no placeholder
-                        inputs[2].style.color = '#2e7d32';
-                        inputs[2].title = `Resultado: ${resultC}`;
-                    } else {
-                        inputs[2].style.color = '#d32f2f';
-                        inputs[2].title = 'Fórmula inválida';
+                inputs.forEach((input, colIndex) => {
+                    const value = parseFloat(input.value);
+                    if (!isNaN(value) && input.value.trim() !== '') {
+                        sums[colIndex] += value;
+                        counts[colIndex]++;
                     }
-                } else {
-                    inputs[2].style.color = '';
-                    inputs[2].title = '';
-                }
+                });
             });
             
             // Atualiza os resultados na interface
-            document.getElementById('sumA').textContent = sumA.toLocaleString('pt-BR', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
-            document.getElementById('countA').textContent = countA;
-            
-            document.getElementById('sumB').textContent = sumB.toLocaleString('pt-BR', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
-            document.getElementById('countB').textContent = countB;
-            
-            document.getElementById('sumC').textContent = sumC.toLocaleString('pt-BR', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
-            document.getElementById('countC').textContent = countC;
+            for (let i = 0; i < columnCount; i++) {
+                const columnLetter = String.fromCharCode(65 + i); // A, B, C, etc.
+                
+                const sumElement = document.getElementById(`sum${columnLetter}`);
+                const countElement = document.getElementById(`count${columnLetter}`);
+                
+                if (sumElement) {
+                    sumElement.textContent = sums[i].toLocaleString('pt-BR', {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    });
+                }
+                
+                if (countElement) {
+                    countElement.textContent = counts[i];
+                }
+            }
         }
         
         // Função para lidar com Enter (move para próxima célula)
@@ -413,16 +673,20 @@
                 const rows = document.querySelectorAll('#inputArea .row');
                 const currentRowElement = rows[currentRow - 1];
                 
-                if (currentCol < 2) {
+                if (currentCol < columnCount - 1) {
                     // Move para próxima coluna na mesma linha
                     const nextInput = currentRowElement.querySelectorAll('input')[currentCol + 1];
-                    nextInput.focus();
+                    if (nextInput) {
+                        nextInput.focus();
+                    }
                 } else {
                     // Move para primeira coluna da próxima linha
                     if (currentRow < rows.length) {
                         const nextRowElement = rows[currentRow];
                         const nextInput = nextRowElement.querySelector('input');
-                        nextInput.focus();
+                        if (nextInput) {
+                            nextInput.focus();
+                        }
                     } else {
                         // Cria nova linha se for a última
                         addRow();
@@ -431,15 +695,13 @@
             }
         }
         
-        // Inicializar com algumas linhas
-        function init() {
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            updateResultsDisplay(); // Cria os cards de resultado iniciais
             for (let i = 0; i < 8; i++) {
                 addRow();
             }
-        }
-        
-        // Inicializar quando a página carregar
-        window.onload = init;
+        });
     </script>
 </body>
 </html>
